@@ -1,0 +1,67 @@
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Navbar from "./components/global/Navbar"
+import Footer from "./components/global/Footer"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import { Toaster } from "react-hot-toast"
+import JobsPage from "./pages/JobsPage"
+import ProfilePage from "./pages/ProfilePage"
+import SingleJobPage from "./pages/SingleJobPage"
+import JobApplicationPage from "./pages/JobApplicationPage"
+import { useState } from "react"
+import CreateJob from "./pages/CreateJob"
+import SavedJobs from "./pages/SavedJobs"
+import MyJobs from "./pages/MyJobs"
+import EditJob from "./pages/EditJob"
+import AllJobApplications from "./pages/AllJobApplications"
+import PublicRoute from "./Routes/PublicRoute"
+import PrivateRoute from "./Routes/PrivateRoute"
+import ResumeForm from "./pages/ResumeForm"
+import MyApplications from "./pages/MyApplications"
+
+
+
+function App() {
+
+
+  let [open, setOpen] = useState(false);
+
+
+  return (
+    <>
+
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: '#4aed88',
+              secondary: '',
+            },
+          },
+        }}
+      ></Toaster>
+      <Navbar open={open} setOpen={setOpen} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={ <PublicRoute element={<Login />}/> } />
+        <Route path="/signup" element={<PublicRoute element={<Register />}/>} />
+        <Route path="/jobs" element={<JobsPage open={open} />} />
+        <Route path="/resume-builder" element={<ResumeForm />} />
+        <Route path="/profile" element={  <PrivateRoute element={<ProfilePage open={open}/>} />} />
+        <Route path="/create-job" element={<PrivateRoute element={ <CreateJob />}  /> } />
+        <Route path="/saved-jobs" element={<PrivateRoute element={<SavedJobs />} /> }   />
+        <Route path="/created-jobs" element={<PrivateRoute element={<MyJobs />} /> } />
+        <Route path="/my-applications" element={<PrivateRoute element={<MyApplications />} /> } />
+        <Route path="/job/:jobId" element={<SingleJobPage />} />
+        <Route path="/applications/:jobId" element={<PrivateRoute element={<AllJobApplications />} /> } />
+        <Route path="/edit-job/:jobId" element={<PrivateRoute element={<EditJob />} /> } />
+        <Route path="/application/:jobId" element={<PrivateRoute element={<JobApplicationPage />} /> } />
+      </Routes>
+      <Footer />
+    </>
+  )
+}
+
+export default App

@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const verifyToken_1 = require("../middleware/verifyToken");
+const JobControllers_1 = require("../controllers/JobControllers");
+const router = express_1.default.Router();
+router.post('/create-job', verifyToken_1.verifyToken, JobControllers_1.CreateJobController);
+router.post('/apply/:jobId', verifyToken_1.verifyToken, JobControllers_1.ApplyJobController);
+router.get('/getall-jobs', JobControllers_1.GetAllJobsController);
+router.get('/get-job/:jobId', JobControllers_1.getSingleJobController);
+router.put('/update-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.UpdateJobController);
+router.delete('/delete-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.DeleteJobController);
+router.get('/search-job', verifyToken_1.verifyToken, JobControllers_1.SearchJobController);
+router.post('/save-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.SaveJobController);
+router.get('/get-saved-jobs/', verifyToken_1.verifyToken, JobControllers_1.getSavedJobsController);
+router.get('/get-job-applications/:jobId', verifyToken_1.verifyToken, JobControllers_1.getJobApplicationsController);
+router.post('/remove-saved-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.RemoveSavedJobController);
+exports.default = router;

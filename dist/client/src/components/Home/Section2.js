@@ -1,0 +1,11 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const Image2_png_1 = __importDefault(require("../../images/Image2.png"));
+const Section2 = () => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: 'flex mt-10 md:flex-row flex-col md:px-20 px-4 gap-8', children: [(0, jsx_runtime_1.jsx)("div", { className: "flex-1 md:px-8 px-2 md:py-8 py-4", children: (0, jsx_runtime_1.jsxs)("div", { className: 'flex flex-col', children: [(0, jsx_runtime_1.jsx)("h2", { className: ' text-xl  p-2', children: " Why Choose Us" }), (0, jsx_runtime_1.jsx)("h1", { className: 'md:text-6xl text-4xl font-semibold', children: "Super Simple Applications Are Made For Easily" }), (0, jsx_runtime_1.jsx)("div", { className: '', children: (0, jsx_runtime_1.jsx)("p", { className: 'mt-4  text-xl ', children: "This is a common goal for many software development teams, as user-friendly design is often considered a key aspect of a successful application." }) }), (0, jsx_runtime_1.jsx)("button", { className: 'border bg-black mt-8 text-white   px-8 py-2 rounded-full duration-500', children: "Get 14 Days Free Trial" }), (0, jsx_runtime_1.jsxs)("div", { className: 'bg-white rounded-3xl p-6 mt-10 flex md:flex-row flex-col gap-8', children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex-1', children: [(0, jsx_runtime_1.jsx)("h3", { className: 'text-xl font-medium', children: "Free Download App" }), (0, jsx_runtime_1.jsx)("p", { className: 'text-gray-500', children: "3D printing, also known as additive is a process of creating a physical" })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex-1', children: [(0, jsx_runtime_1.jsx)("h3", { className: 'text-xl font-medium', children: "Trusted and Reliable" }), (0, jsx_runtime_1.jsx)("p", { className: 'text-gray-500', children: "Trusted refers to the perception or belief that a person or organizatio" })] })] })] }) }), (0, jsx_runtime_1.jsx)("div", { className: "flex-1 flex flex-col gap-6", children: (0, jsx_runtime_1.jsx)("img", { className: '', src: Image2_png_1.default, alt: "" }) })] }));
+};
+exports.default = Section2;
