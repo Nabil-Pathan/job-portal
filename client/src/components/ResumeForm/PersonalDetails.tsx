@@ -4,8 +4,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
   return (
     <div className="container mt-6 mx-auto">
       <form className="flex flex-col gap-4 w-[100%]">
-        <div className="flex items-center w-full justify-center gap-3">
-          <label className="text-xl">Name</label>
+        <div className="flex md:flex-row flex-col items-center w-full justify-center gap-3">
+          <label className="md:text-xl">Name</label>
           <input
             type="text"
             className="px-4 py-2 rounded-md  outline-none"
@@ -16,8 +16,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex items-center justify-center gap-3">
-          <label className="text-xl">Email</label>
+        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+          <label className="md:text-xl">Email</label>
           <input
             type="email"
             className="px-4 py-2 rounded-md outline-none"
@@ -28,8 +28,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex items-center justify-center gap-3">
-          <label className="text-xl">Phone</label>
+        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+          <label className="md:text-xl">Phone</label>
           <input
             type="text"
             className="px-4 py-2 outline-none rounded-md"
@@ -41,8 +41,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
           />
         </div>
 
-        <div className="flex items-center justify-center gap-3">
-          <label className="text-xl">Github</label>
+        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+          <label className="md:text-xl">Github</label>
           <input
             type="text"
             className="px-4 py-2 rounded-md outline-none"
@@ -54,8 +54,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex items-center justify-center gap-3">
-          <label className="text-xl">LinkedIn</label>
+        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+          <label className="md:text-xl">LinkedIn</label>
           <input
             type="text"
             className="px-4 py-2 rounded-md outline-none"
@@ -67,8 +67,8 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex items-center justify-center gap-3">
-          <label className="text-xl">Skills</label>
+        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+          <label className="md:text-xl">Skills</label>
           <input
             type="text"
             className="px-4 py-2 rounded-md outline-none"

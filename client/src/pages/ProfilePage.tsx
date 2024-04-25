@@ -113,17 +113,17 @@ const ProfilePage = ({ open }: { open: boolean}) => {
       </div>
 
       <form  onSubmit={handleSubmit}>
-        <div className="flex md:flex-row flex-col ">
+        <div className="flex md:flex-row items-center justify-center flex-col ">
 
           {/* Profile Pic */}
-          <div className="flex-1 flex justify-center  p-4">
+          <div className="flex-1 flex justify-center p-4">
             <img
               onClick={() => fileRef.current && fileRef.current.click()}
               className="md:h-[400px] cursor-pointer"
               src={user?.pic || formData.pic} alt="" />
 
 {
-  fileError && <p className="text-red-500 mt-4"></p> 
+  fileError && <p className="text-red-500  mt-4"></p> 
 }
 
 
@@ -136,6 +136,10 @@ const ProfilePage = ({ open }: { open: boolean}) => {
               type="file"
               ref={fileRef}
               hidden accept='image/*' />
+
+{
+  filePer &&  filePer > 0 ? <p className="text-center"></p> : <></>  
+}
           </div>
 
 
@@ -205,9 +209,7 @@ const ProfilePage = ({ open }: { open: boolean}) => {
 
         </div>
 
-        {
-  filePer && <p className="text-center"></p> 
-}
+  
       </form>
 
       

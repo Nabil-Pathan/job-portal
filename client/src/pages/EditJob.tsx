@@ -126,10 +126,10 @@ const EditJob = () => {
         </button>
         </div>
 
-        <div className="mt-8 flex gap-2">
+        <div className="mt-8 grid md:grid-cols-4 grid-cols-2 gap-2">
           {
             requirements.map((requirement)=>(
-              <span  className="bg-pink-200 flex gap-4  py-3 px-4 rounded-full text-center font-medium ">{requirement}
+              <span  className="bg-pink-200 flex justify-between items-center gap-4  py-3 px-4 rounded-full text-center font-medium ">{requirement}
               
                <button
                type="button"
