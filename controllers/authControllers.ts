@@ -1,6 +1,6 @@
 import { Request , Response} from "express"
 import User from "../models/userSchema"
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 export const Signupcontroller = async (req : Request | any ,res:  Response )=>{
@@ -17,7 +17,7 @@ export const Signupcontroller = async (req : Request | any ,res:  Response )=>{
             return res.json({message : "User Already Exist"}).status(400)
         }
 
-        const hashedPassword = await bcrypt.hash(password,10)
+        const hashedPassword = await bcryptjs.hash(password,10)
 
         const newUser = await User.create({name ,email,password: hashedPassword,pic})
 
@@ -47,7 +47,7 @@ export const Signincontroller = async (req : Request | any ,res:  Response )=>{
             return res.json({message : "User does not Exist"}).status(400)
         }
 
-        const comparePassword = await bcrypt.compare(password,user.password)
+        const comparePassword = await bcryptjs.compare(password,user.password)
 
         if(!comparePassword){
             return res.json({message : "Invalid Credentials"}).status(400)
@@ -83,7 +83,7 @@ export const GoogleAuthController = async (req: Request ,res  : Response)=>{
 
             const generatePassword = Math.random().toString(36).slice(-8)
 
-            const hashedPassword = await bcrypt.hash(generatePassword,10)
+            const hashedPassword = await bcryptjs.hash(generatePassword,10)
 
             const newUser = await new User({name : result.displayName.split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-4) , email : result.email , password: hashedPassword , pic : result.photoURL})
             await newUser.save()

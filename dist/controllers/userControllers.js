@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllAppliedJobs = exports.getResumeController = exports.CreateResumeController = exports.getCreatedJobs = exports.UpdateProfileController = void 0;
 const userSchema_1 = __importDefault(require("../models/userSchema"));
 const jobSchema_1 = __importDefault(require("../models/jobSchema"));
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const html_pdf_1 = __importDefault(require("html-pdf"));
 const index_1 = __importDefault(require("../pdf-sample/index"));
@@ -32,7 +32,7 @@ const UpdateProfileController = (req, res) => __awaiter(void 0, void 0, void 0, 
         }
         // Only hash the password if it is provided
         if (password !== "") {
-            password = yield bcrypt_1.default.hash(password, 10);
+            password = yield bcryptjs_1.default.hash(password, 10);
         }
         else {
             // If password is not provided, remove it from the update object

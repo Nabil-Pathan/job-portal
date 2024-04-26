@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GoogleAuthController = exports.Signincontroller = exports.Signupcontroller = void 0;
 const userSchema_1 = __importDefault(require("../models/userSchema"));
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const Signupcontroller = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -26,7 +26,7 @@ const Signupcontroller = (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (user) {
             return res.json({ message: "User Already Exist" }).status(400);
         }
-        const hashedPassword = yield bcrypt_1.default.hash(password, 10);
+        const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
         const newUser = yield userSchema_1.default.create({ name, email, password: hashedPassword, pic });
         const token = yield jsonwebtoken_1.default.sign({ id: newUser._id }, process.env.JWT_SECRET);
         return res.json({ message: "Registration Successful", user: newUser, token }).status(201);
@@ -47,7 +47,7 @@ const Signincontroller = (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (!user) {
             return res.json({ message: "User does not Exist" }).status(400);
         }
-        const comparePassword = yield bcrypt_1.default.compare(password, user.password);
+        const comparePassword = yield bcryptjs_1.default.compare(password, user.password);
         if (!comparePassword) {
             return res.json({ message: "Invalid Credentials" }).status(400);
         }
@@ -72,7 +72,7 @@ const GoogleAuthController = (req, res) => __awaiter(void 0, void 0, void 0, fun
         else {
             // Register User
             const generatePassword = Math.random().toString(36).slice(-8);
-            const hashedPassword = yield bcrypt_1.default.hash(generatePassword, 10);
+            const hashedPassword = yield bcryptjs_1.default.hash(generatePassword, 10);
             const newUser = yield new userSchema_1.default({ name: result.displayName.split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-4), email: result.email, password: hashedPassword, pic: result.photoURL });
             yield newUser.save();
             const token = jsonwebtoken_1.default.sign({ id: newUser._id }, process.env.JWT_SECRET);

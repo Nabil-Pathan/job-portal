@@ -1,7 +1,7 @@
 import User, { UserType } from "../models/userSchema";
 import Job from "../models/jobSchema"
 import { Request, Response } from "express";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from 'jsonwebtoken'
 import pdf from "html-pdf"
 import pdfSample  from "../pdf-sample/index";
@@ -23,7 +23,7 @@ export const UpdateProfileController = async (req: Request, res: Response) => {
 
     // Only hash the password if it is provided
     if (password !== "") {
-      password = await bcrypt.hash(password, 10);
+      password = await bcryptjs.hash(password, 10);
     } else {
       // If password is not provided, remove it from the update object
       password = undefined;
