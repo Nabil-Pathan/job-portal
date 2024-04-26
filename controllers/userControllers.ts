@@ -131,3 +131,19 @@ export const getAllAppliedJobs = async (req : Request | any  , res : Response)=>
   }
 }
 
+export const getUserProfile = async (req : Request , res : Response)=>{
+  try {
+     const userId = req.params.userId
+
+     const user = await User.findById(userId)
+
+     if(!user){
+      return res.json({ error: "User Not Found" }).status(404);
+     }
+     
+     return res.json({user}).status(200)
+  } catch (error : any) {
+    console.log(error);
+    return res.json({ error: "Internal Server Error" }).status(500);
+  }
+}

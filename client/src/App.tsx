@@ -19,6 +19,7 @@ import PublicRoute from "./Routes/PublicRoute"
 import PrivateRoute from "./Routes/PrivateRoute"
 import ResumeForm from "./pages/ResumeForm"
 import MyApplications from "./pages/MyApplications"
+import UserProfile from "./pages/UserProfile"
 
 
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/signin" element={ <PublicRoute element={<Login />}/> } />
         <Route path="/signup" element={<PublicRoute element={<Register />}/>} />
         <Route path="/jobs" element={<JobsPage open={open} />} />
+        <Route path="/profile/:userId" element={<UserProfile/>} />
         <Route path="/resume-builder" element={<ResumeForm />} />
         <Route path="/profile" element={  <PrivateRoute element={<ProfilePage open={open}/>} />} />
         <Route path="/create-job" element={<PrivateRoute element={ <CreateJob />}  /> } />
