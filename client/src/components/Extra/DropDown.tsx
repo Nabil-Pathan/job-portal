@@ -48,7 +48,7 @@ const Dropdown = ( { open }: { open: boolean}) => {
           <div className="py-1" role="none">
             <Link
               to='/saved-jobs'
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              className="block px-4 py-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
               Saved Jobs

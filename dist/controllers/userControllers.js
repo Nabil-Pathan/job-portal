@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllAppliedJobs = exports.getResumeController = exports.CreateResumeController = exports.getCreatedJobs = exports.UpdateProfileController = void 0;
+exports.getUserProfile = exports.getAllAppliedJobs = exports.getResumeController = exports.CreateResumeController = exports.getCreatedJobs = exports.UpdateProfileController = void 0;
 const userSchema_1 = __importDefault(require("../models/userSchema"));
 const jobSchema_1 = __importDefault(require("../models/jobSchema"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
@@ -118,3 +118,18 @@ const getAllAppliedJobs = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.getAllAppliedJobs = getAllAppliedJobs;
+const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userId = req.params.userId;
+        const user = yield userSchema_1.default.findById(userId);
+        if (!user) {
+            return res.json({ error: "User Not Found" }).status(404);
+        }
+        return res.json({ user }).status(200);
+    }
+    catch (error) {
+        console.log(error);
+        return res.json({ error: "Internal Server Error" }).status(500);
+    }
+});
+exports.getUserProfile = getUserProfile;

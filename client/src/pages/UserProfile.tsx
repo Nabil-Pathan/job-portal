@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { UserType } from "./JobsPage"
@@ -48,7 +48,9 @@ const UserProfile = () => {
 
             <p>{userProfile?.email}</p>
 
+            <Link to={`/chat/${userProfile?._id}`}>
             <button className="bg-blue-500 text-white font-bold px-4 py-3 rounded-md mt-4">Message</button>
+            </Link>
         </div>
     </div>
 );

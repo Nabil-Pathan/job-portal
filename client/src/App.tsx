@@ -20,6 +20,10 @@ import PrivateRoute from "./Routes/PrivateRoute"
 import ResumeForm from "./pages/ResumeForm"
 import MyApplications from "./pages/MyApplications"
 import UserProfile from "./pages/UserProfile"
+import ChatPage from "./pages/ChatPage"
+import ShowNavbar from "./components/Extra/ShowNavbar"
+import ShowFooter from "./components/Extra/ShowFooter"
+import AllChats from "./pages/AllChats"
 
 
 
@@ -43,9 +47,12 @@ function App() {
           },
         }}
       ></Toaster>
+
+      <ShowNavbar>
       <Navbar open={open} setOpen={setOpen} />
+      </ShowNavbar>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={ <Home />} />
         <Route path="/signin" element={ <PublicRoute element={<Login />}/> } />
         <Route path="/signup" element={<PublicRoute element={<Register />}/>} />
         <Route path="/jobs" element={<JobsPage open={open} />} />
@@ -53,15 +60,20 @@ function App() {
         <Route path="/resume-builder" element={<ResumeForm />} />
         <Route path="/profile" element={  <PrivateRoute element={<ProfilePage open={open}/>} />} />
         <Route path="/create-job" element={<PrivateRoute element={ <CreateJob />}  /> } />
+        <Route path="/all-chats" element={<PrivateRoute element={ <AllChats />}  /> } />
         <Route path="/saved-jobs" element={<PrivateRoute element={<SavedJobs />} /> }   />
         <Route path="/created-jobs" element={<PrivateRoute element={<MyJobs />} /> } />
         <Route path="/my-applications" element={<PrivateRoute element={<MyApplications />} /> } />
         <Route path="/job/:jobId" element={<SingleJobPage />} />
+        <Route path="/chat/:userId" element={<ChatPage />} />
         <Route path="/applications/:jobId" element={<PrivateRoute element={<AllJobApplications />} /> } />
         <Route path="/edit-job/:jobId" element={<PrivateRoute element={<EditJob />} /> } />
         <Route path="/application/:jobId" element={<PrivateRoute element={<JobApplicationPage />} /> } />
       </Routes>
+
+      <ShowFooter>
       <Footer />
+      </ShowFooter>
     </>
   )
 }

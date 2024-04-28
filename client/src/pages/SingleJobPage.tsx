@@ -67,12 +67,12 @@ const SingleJobPage = () => {
             <p className="text-gray-700 text-xl font-medium  mt-4">Number of Applicants: {job.applicants.length}</p>
           </div>
 
-           <div className="flex mt-8 items-center gap-3">
+           <Link to={`/profile/${job.postedBy._id}`} className="flex mt-8 items-center gap-3">
              <h1 className="text-xl">Posted By : </h1>
              <img className="h-[40px] w-[40px] object-cover rounded-full" src={job.postedBy.pic} alt="" />
 
-             <Link to={`/profile/${job.postedBy._id}`} className="text-xl font-semibold underline">{job.postedBy.name}</Link>
-           </div>
+             <h2 className="md:text-xl font-semibold underline">{job.postedBy.name}</h2>
+           </Link>
 
            <button onClick={handleApplyJob} className='bg-blue-600 text-white px-8 mt-4 py-3 rounded-full'>Apply</button>
 

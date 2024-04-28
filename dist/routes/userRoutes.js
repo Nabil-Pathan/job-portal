@@ -8,6 +8,7 @@ const userControllers_1 = require("../controllers/userControllers");
 const verifyToken_1 = require("../middleware/verifyToken");
 const router = express_1.default.Router();
 router.post('/update-profile/:userId', verifyToken_1.verifyToken, userControllers_1.UpdateProfileController);
+router.get('/get-user-profile/:userId', verifyToken_1.verifyToken, userControllers_1.getUserProfile);
 router.get('/get-created-jobs/:userId', verifyToken_1.verifyToken, userControllers_1.getCreatedJobs);
 router.post('/create-resume', verifyToken_1.verifyToken, userControllers_1.CreateResumeController);
 router.get('/fetch-pdf', userControllers_1.getResumeController);

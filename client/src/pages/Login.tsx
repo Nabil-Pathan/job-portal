@@ -50,7 +50,7 @@ const Login = () => {
                 <input
                     type='email'
                     placeholder='email'
-                    className='border p-3 rounded-lg'
+                    className='border outline-none p-3 rounded-lg'
                     id='email'
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -59,7 +59,7 @@ const Login = () => {
                 <input
                     type={'password'}
                     placeholder="password"
-                    className="border w-full p-3 rounded-lg pr-10"
+                    className="border w-full outline-none p-3 rounded-lg pr-10"
                     id="password"
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />

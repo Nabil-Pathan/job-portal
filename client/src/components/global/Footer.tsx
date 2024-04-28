@@ -1,7 +1,7 @@
 import { faFacebook, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faArrowRight, faClock, faEnvelope, faLocationDot, faPhoneVolume } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import LogoImage from "../../images/logo2.png"
 
 const Footer = () => {
   return (
@@ -96,7 +96,8 @@ const Footer = () => {
 
       <div className='flex md:mt-0 mt-10 md:flex-row flex-col items-center md:gap-0 gap-8 md:px-10 justify-between'>
          <div>
-           <h1 className='font-semibold text-2xl'>Logo</h1>
+           {/* <h1 className='font-semibold text-2xl'>Logo</h1> */}
+           <img className='w-[100%] md:h-[60px] h-[40px]' src={LogoImage} alt="" />
          </div>
 
 

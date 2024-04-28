@@ -56,14 +56,14 @@ const Register = () => {
       <input
         type='text'
         placeholder='username'
-        className='border p-3 rounded-lg'
+        className='border p-3 outline-none rounded-lg'
         id='username'
         onChange={(e)=> setFormData({...formData , name : e.target.value}) }
       />
       <input
         type='email'
         placeholder='email'
-        className='border p-3 rounded-lg'
+        className='border outline-none p-3 rounded-lg'
         id='email'
         onChange={(e)=> setFormData({...formData , email: e.target.value}) }
 
@@ -71,7 +71,7 @@ const Register = () => {
       <input
         type='password'
         placeholder='password'
-        className='border p-3 rounded-lg'
+        className='border outline-none p-3 rounded-lg'
         id='password'
         onChange={(e)=> setFormData({...formData , password : e.target.value}) }
 
