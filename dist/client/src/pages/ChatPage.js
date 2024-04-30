@@ -20,7 +20,7 @@ const socket_io_client_1 = __importDefault(require("socket.io-client"));
 const react_router_dom_1 = require("react-router-dom");
 const react_router_dom_2 = require("react-router-dom");
 const Loader_1 = __importDefault(require("../components/Extra/Loader"));
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "http://44.207.204.68:5000";
 const socket = (0, socket_io_client_1.default)(ENDPOINT);
 const ChatPage = () => {
     const navigate = (0, react_router_dom_2.useNavigate)();
