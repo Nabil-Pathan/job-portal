@@ -22,7 +22,7 @@ interface ChatUserType {
 }
 
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "http://44.207.204.68:5000";
 const socket = io(ENDPOINT);
 
 const ChatPage = () => {
