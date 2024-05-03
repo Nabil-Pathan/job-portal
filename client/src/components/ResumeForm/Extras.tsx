@@ -2,10 +2,9 @@ import { FormDataTypes } from "../../pages/ResumeForm";
 
 const Extras = ({ formData, setFormData }: { formData: FormDataTypes; setFormData: (value: FormDataTypes) => void }) => {
   return (
-    <div className="container mt-4 mx-auto p-4">
+    <div className=" mt-4 mx-auto p-4">
       <form className="flex flex-col items-center justify-center gap-4">
-        <h3 className="text-xl text-center font-bold">Languages you can speak:</h3>
-        <div className="flex items-center md:flex-row flex-col gap-3">
+        <div className="flex flex-col gap-3">
           <label className="md:text-xl">Languages</label>
           <input
             type="text"
@@ -18,9 +17,7 @@ const Extras = ({ formData, setFormData }: { formData: FormDataTypes; setFormDat
           />
         </div>
 
-        <hr className="my-4 w-full" />
-        <h3 className="text-xl text-center font-bold">Things you like to do:</h3>
-        <div className="flex items-center md:flex-row flex-col gap-3">
+        <div className="flex  flex-col gap-3">
           <label className="md:text-xl">Hobbies</label>
           <input
             type="text"

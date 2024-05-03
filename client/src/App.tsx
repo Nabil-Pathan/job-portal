@@ -24,6 +24,7 @@ import ChatPage from "./pages/ChatPage"
 import ShowNavbar from "./components/Extra/ShowNavbar"
 import ShowFooter from "./components/Extra/ShowFooter"
 import AllChats from "./pages/AllChats"
+import ContactPage from "./pages/ContactPage"
 
 
 
@@ -54,6 +55,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/signin" element={ <PublicRoute element={<Login />}/> } />
+        <Route path="/contact" element={ <PublicRoute element={<ContactPage />}/> } />
         <Route path="/signup" element={<PublicRoute element={<Register />}/>} />
         <Route path="/jobs" element={<JobsPage open={open} />} />
         <Route path="/profile/:userId" element={<UserProfile/>} />

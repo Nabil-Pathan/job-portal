@@ -106,7 +106,7 @@ const ResumeForm = () => {
             console.log(error.message);
         }
     });
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "p-4", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex justify-center mt-2", children: (0, jsx_runtime_1.jsx)("h1", { className: "text-center text-3xl font-medium", children: FormTitle[page] }) }), (0, jsx_runtime_1.jsx)("div", { className: "progressbar", children: (0, jsx_runtime_1.jsx)("div", { style: {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "md:min-h-screen md:px-4 py-8 ", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex container  items-center justify-center mt-2", children: (0, jsx_runtime_1.jsx)("h1", { className: "text-center text-3xl font-medium", children: FormTitle[page] }) }), (0, jsx_runtime_1.jsx)("div", { className: "progressbar", children: (0, jsx_runtime_1.jsx)("div", { style: {
                         width: page === 0
                             ? "20%"
                             : page === 1
@@ -116,7 +116,7 @@ const ResumeForm = () => {
                                     : page === 3
                                         ? "80%"
                                         : "100%",
-                    } }) }), (0, jsx_runtime_1.jsx)("div", { children: PageDisplay() }), (0, jsx_runtime_1.jsxs)("div", { className: "flex justify-center gap-3 py-5", children: [(0, jsx_runtime_1.jsx)("button", { className: "bg-blue-500 text-white font-bold px-4 py-2 rounded-md", disabled: page === 0, onClick: () => {
+                    } }) }), (0, jsx_runtime_1.jsx)("div", { className: " flex justify-center items-center w-full", children: PageDisplay() }), (0, jsx_runtime_1.jsxs)("div", { className: "flex justify-center gap-3 py-5", children: [(0, jsx_runtime_1.jsx)("button", { className: "bg-blue-500 text-white font-bold px-4 py-2 rounded-md", disabled: page === 0, onClick: () => {
                             setPage((currPage) => currPage - 1);
                         }, children: "Prev" }), (0, jsx_runtime_1.jsx)("button", { className: "bg-blue-500 text-white font-bold px-4 py-2 rounded-md", onClick: () => {
                             if (page === FormTitle.length - 1) {

@@ -140,8 +140,8 @@ const ResumeForm = () => {
     }
   }
   return (
-    <div className="p-4">
-      <div className="flex justify-center mt-2">
+    <div className="md:min-h-screen md:px-4 py-8 ">
+      <div className="flex container  items-center justify-center mt-2">
         <h1 className="text-center text-3xl font-medium">{FormTitle[page]}</h1>
       </div>
       <div className="progressbar">
@@ -160,7 +160,9 @@ const ResumeForm = () => {
           }}
         ></div>
       </div>
-      <div>{PageDisplay()}</div>
+      <div
+      className=" flex justify-center items-center w-full"
+      >{PageDisplay()}</div>
       <div className="flex justify-center gap-3 py-5">
         <button
           className="bg-blue-500 text-white font-bold px-4 py-2 rounded-md"

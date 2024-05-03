@@ -22,7 +22,7 @@ const Navbar = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<Reac
         { name: "About Us", link: "/" },
         { name: "Service", link: "/" },
         { name: "Jobs", link: "/jobs" },
-        { name: "Contact Us", link: "/" },
+        { name: "Contact Us", link: "/contact" },
     ];
 
 
@@ -56,7 +56,7 @@ const Navbar = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<Reac
                 <div className='font-medium text-xl cursor-pointer flex items-center gap-1'>
                     <Link className='flex items-center gap-2 md:pr-10' to="/">
                         {/* <h1 className='text-darkBlue md:text-3xl text-xl font-bold'>Job Portal</h1> */}
-                        <img className='w-[100%] md:h-[60px] h-[40px]' src={LogoImage} alt="" />
+                        <img className='w-[100%] md:h-[45px] h-[35px]' src={LogoImage} alt="" />
                     </Link>
                 </div>
                 {/* Menu icon */}

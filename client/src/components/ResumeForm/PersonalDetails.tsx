@@ -1,14 +1,16 @@
 import { FormDataTypes } from "../../pages/ResumeForm";
+// import PersonalDetailsImage from "../../images/personal-details.png"
 
 const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; setFormData: (value: FormDataTypes) => void }) => {
   return (
-    <div className="container mt-6 mx-auto">
+    <div className=" md:w-[60%] w-[100%] flex items-start md:flex-row flex-col px-4 py-12 bg-white mt-6 ">
+        {/* <img className="md:w-[700px]" src={PersonalDetailsImage} alt="" /> */}
       <form className="flex flex-col gap-4 w-[100%]">
-        <div className="flex md:flex-row flex-col items-center w-full justify-center gap-3">
+        <div className="flex  flex-col  w-full  gap-3">
           <label className="md:text-xl">Name</label>
           <input
             type="text"
-            className="px-4 py-2 rounded-md  outline-none"
+            className="px-4 py-2 bg-gray-200 rounded-md  outline-none"
             id="name"
             value={formData.name}
             onChange={(e) => {
@@ -16,11 +18,11 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+        <div className="flex  flex-col  gap-3">
           <label className="md:text-xl">Email</label>
           <input
             type="email"
-            className="px-4 py-2 rounded-md outline-none"
+            className="px-4 py-2 bg-gray-200 rounded-md outline-none"
             id="Email"
             value={formData.email}
             onChange={(e) => {
@@ -28,11 +30,11 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+        <div className="flex  flex-col  gap-3">
           <label className="md:text-xl">Phone</label>
           <input
             type="text"
-            className="px-4 py-2 outline-none rounded-md"
+            className="px-4 py-2 bg-gray-200 outline-none rounded-md"
             id="phone"
             value={formData.phone}
             onChange={(e) => {
@@ -41,11 +43,11 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
           />
         </div>
 
-        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+        <div className="flex  flex-col  gap-3">
           <label className="md:text-xl">Github</label>
           <input
             type="text"
-            className="px-4 py-2 rounded-md outline-none"
+            className="px-4 py-2 bg-gray-200 rounded-md outline-none"
             id="github"
             placeholder="https://github/YOURUSERNAME"
             value={formData.github}
@@ -54,11 +56,11 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+        <div className="flex  flex-col  gap-3">
           <label className="md:text-xl">LinkedIn</label>
           <input
             type="text"
-            className="px-4 py-2 rounded-md outline-none"
+            className="px-4 py-2 rounded-md bg-gray-200 outline-none"
             id="LinkedIn"
             placeholder="https://linkedIn/YOURUSERNAME"
             value={formData.linkedin}
@@ -67,11 +69,11 @@ const PersonalDetails = ({ formData, setFormData }: { formData: FormDataTypes; s
             }}
           />
         </div>
-        <div className="flex md:flex-row flex-col items-center justify-center gap-3">
+        <div className="flex  flex-col  gap-3">
           <label className="md:text-xl">Skills</label>
           <input
             type="text"
-            className="px-4 py-2 rounded-md outline-none"
+            className="px-4 py-2 rounded-md bg-gray-200 outline-none"
             id="Skills"
             placeholder="Enter skills and separate each of them with a comma "
             value={formData.skills}

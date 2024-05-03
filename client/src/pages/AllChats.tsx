@@ -37,10 +37,10 @@ const AllChats = () => {
     <>
     <div className="container bg-white h-screen mx-auto px-4 py-6">
          <h1 className="text-3xl font-bold text-center">Recent Chats</h1>
-        <div className="flex mt-8 flex-col">
+        <div className="flex items-center justify-center mt-8 flex-col">
         {
             users?.map((user : UserType)=>(
-                <Link to={`/chat/${user._id}`} className="flex border px-4 py-3 border-gray-300 items-center gap-6 transition duration-300 cursor-pointer " key={user._id}>
+                <Link to={`/chat/${user._id}`} className="flex border md:w-[50%] w-[100%] px-4 py-3 border-gray-300 items-center gap-6 transition duration-300 cursor-pointer " key={user._id}>
                     <img className="h-[40px] w-[40px] rounded-full" src={user.pic} alt="pic" />
                     <h1 className="text-xl font-medium">{user.name}</h1>
                 </Link>
