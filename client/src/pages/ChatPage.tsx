@@ -21,8 +21,8 @@ interface ChatUserType {
   password : string 
 }
 
+const ENDPOINT = "https://www.jobcrest.world";
 
-const ENDPOINT = "http://jobcrest.world:5000";
 const socket = io(ENDPOINT);
 
 const ChatPage = () => {

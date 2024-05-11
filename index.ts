@@ -60,7 +60,6 @@ io.on("connection", (socket)=>{
 
   socket.on("join-chat",(room)=>{
     socket.join(room)
-    // console.log(`User Joined room : ${room}`);
   })
 
   socket.on('new-message', (newMessageRecieved: { chat: ChatDocument ; sender: UserType; content: string }) => {
@@ -70,10 +69,7 @@ io.on("connection", (socket)=>{
     console.log("Chat",chat);
     
   
-    if (!chat.users) return console.log('chat.users not defined');
-
-    // console.log(chat.users);
-    
+    if (!chat.users) return console.log('chat.users not defined');    
     chat.users.forEach(user => {
       if (user._id === newMessageRecieved.sender._id) {
         return;
