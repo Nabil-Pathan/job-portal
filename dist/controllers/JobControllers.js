@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getJobApplicationsController = exports.getSavedJobsController = exports.RemoveSavedJobController = exports.SaveJobController = exports.getSingleJobController = exports.SearchJobController = exports.ApplyJobController = exports.GetAllJobsController = exports.DeleteJobController = exports.UpdateJobController = exports.CreateJobController = void 0;
 const jobSchema_1 = __importDefault(require("../models/jobSchema"));
 const userSchema_1 = __importDefault(require("../models/userSchema"));
+const redis_1 = __importDefault(require("../db/redis"));
 const CreateJobController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title, description, requirements, location, salary, company } = req.body;
@@ -24,6 +25,7 @@ const CreateJobController = (req, res) => __awaiter(void 0, void 0, void 0, func
         const newJob = yield jobSchema_1.default.create({
             title, description, requirements, location, salary, company, postedBy: req.user._id
         });
+        redis_1.default.del("jobs");
         return res.json({ message: "Job Created", newJob }).status(201);
     }
     catch (error) {
@@ -44,6 +46,7 @@ const UpdateJobController = (req, res) => __awaiter(void 0, void 0, void 0, func
             title, description, requirements, location, salary
         });
         updatedJob === null || updatedJob === void 0 ? void 0 : updatedJob.save();
+        yield redis_1.default.del("jobs");
         return res.json({ message: "Job Updated", updatedJob }).status(200);
     }
     catch (error) {
@@ -60,6 +63,7 @@ const DeleteJobController = (req, res) => __awaiter(void 0, void 0, void 0, func
             return res.json({ message: "Job Not Found" }).status(400);
         }
         yield jobSchema_1.default.findByIdAndDelete(jobId);
+        yield redis_1.default.del("jobs");
         return res.json({ message: "Job Deleted" }).status(200);
     }
     catch (error) {
@@ -70,7 +74,16 @@ const DeleteJobController = (req, res) => __awaiter(void 0, void 0, void 0, func
 exports.DeleteJobController = DeleteJobController;
 const GetAllJobsController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const jobExists = yield redis_1.default.exists("jobs");
+        if (jobExists) {
+            console.log('Get From Cache');
+            const jobs = yield redis_1.default.get("jobs");
+            if (jobs) {
+                return res.json({ jobs: JSON.parse(jobs) }).status(200);
+            }
+        }
         const jobs = yield jobSchema_1.default.find({});
+        yield redis_1.default.set("jobs", JSON.stringify(jobs));
         return res.json({ jobs }).status(200);
     }
     catch (error) {
