@@ -21,7 +21,7 @@ interface ChatUserType {
   password : string 
 }
 
-const ENDPOINT = "https://www.jobcrest.world";
+const ENDPOINT = "https://jobcrest.onrender.com";
 
 const socket = io(ENDPOINT);
 
