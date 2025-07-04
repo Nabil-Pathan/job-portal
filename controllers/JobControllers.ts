@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import Job, { ApplicationType } from "../models/jobSchema"
 import User from "../models/userSchema"
-import redis from "../db/redis"
+
 
 export const CreateJobController = async (req: Request | any, res: Response) => {
     try {
@@ -14,8 +14,6 @@ export const CreateJobController = async (req: Request | any, res: Response) => 
         const newJob = await Job.create({
             title,description,requirements,location, salary , company ,  postedBy : req.user._id
         })
-
-        redis.del("jobs")
 
         return res.json({message : "Job Created", newJob}).status(201)
     } catch (error: any) {
@@ -44,8 +42,6 @@ export const UpdateJobController = async (req: Request, res: Response) => {
 
         updatedJob?.save()
 
-        await redis.del("jobs")
-
         return res.json({message : "Job Updated", updatedJob}).status(200)
     } catch (error: any) {
         console.log(error.message);
@@ -68,8 +64,6 @@ export const DeleteJobController = async (req: Request, res: Response) => {
 
         await Job.findByIdAndDelete(jobId)
 
-        await redis.del("jobs")
-
         return res.json({message : "Job Deleted"}).status(200)
     } catch (error: any) {
         console.log(error.message);
@@ -81,21 +75,8 @@ export const DeleteJobController = async (req: Request, res: Response) => {
 
 export const GetAllJobsController = async (req: Request, res: Response) => {
     try {
-        const jobExists = await redis.exists("jobs")
-
-        if(jobExists){
-            console.log('Get From Cache');
-            const jobs = await redis.get("jobs")
-            if (jobs) {
-                return res.json({jobs : JSON.parse(jobs)}).status(200)
-            }
-        }
         const jobs = await Job.find({})
-
-        await redis.set("jobs", JSON.stringify(jobs))
-
         return res.json({jobs}).status(200)
-
     } catch (error: any) {
         console.log(error.message);
         return res.json({message : "Inernal server error"}).status(500)

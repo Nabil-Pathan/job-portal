@@ -5,12 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const verifyToken_1 = require("../middleware/verifyToken");
-const rateLimit_1 = require("../middleware/rateLimit");
 const JobControllers_1 = require("../controllers/JobControllers");
 const router = express_1.default.Router();
 router.post('/create-job', verifyToken_1.verifyToken, JobControllers_1.CreateJobController);
 router.post('/apply/:jobId', verifyToken_1.verifyToken, JobControllers_1.ApplyJobController);
-router.get('/getall-jobs', rateLimit_1.rateLimitter, JobControllers_1.GetAllJobsController);
+router.get('/getall-jobs', JobControllers_1.GetAllJobsController);
 router.get('/get-job/:jobId', JobControllers_1.getSingleJobController);
 router.put('/update-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.UpdateJobController);
 router.delete('/delete-job/:jobId', verifyToken_1.verifyToken, JobControllers_1.DeleteJobController);
